@@ -1,75 +1,74 @@
-![Replicator](assets/logogh.png)
+Fork of replicator that works with eve installed via lutris and also shows character names instead of file id's
 
-# Replicator 🚬
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    🚬  R E P L I C A T O R  🚬
+                    (Lutris / Wine Edition)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-A simple bash script to copy UI settings from one EVE Online character to all your other characters on Linux (Steam/Proton).
+  ⚙  Auto-detecting EVE settings directory...
+  ✓ Found settings at:
+    /home/bradley/Games/eve-online/drive_c/users/steamuser/AppData/Local/CCP/EVE/c_ccp_eve_tq_tranquility/settings_Default
 
-[Illuminated is recruiting!](https://www.illuminatedcorp.com)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  AVAILABLE PROFILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Fetching character names from EVE API... please wait.
 
-## What it does
+  FILE ID         LAST MODIFIED        SIZE       CHARACTER NAME
+  --------------------------------------------------------------------------------
+  92638821        2025-12-14 14:43     6347       Dark808bb
+  2123984366      2025-12-14 14:43     6347       Ebiken Ohmiras
+  2123984365      2025-12-14 14:43     6347       Huurvilen Arji
+  2123984351      2025-12-14 14:43     6347       Vurtamon Karas Muvila
+  2123984350      2025-12-14 14:43     6347       Huulvila Arji
+  2123984346      2025-12-14 14:43     6347       Papala Taranogas
+  2123984341      2025-12-14 14:43     6347       Yonkkamon Osha Ishikela
+  2119125567      2025-12-14 14:43     6347       Val Arnoux
+  2119125418      2025-12-14 14:43     6347       Sue Con
+  2119125289      2025-12-14 14:43     6347       Pedro Veval
+  2119019310      2025-12-14 14:43     6347       Kous Mamon Ijonen
+  2119019292      2025-12-14 14:43     6347       Alo Yatolila
+  2119019251      2025-12-14 14:43     6347       Vanto Keikira
+  2117670337      2025-12-14 14:43     6347       Ulfakebribet Mend Anstian
+  2117654764      2025-12-14 14:43     6347       JitaTycoon
 
-When you have multiple characters in EVE Online and spend time perfecting your UI layout on one character, this script lets you replicate those settings across all your other characters automatically.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Source Selection
+  Type the Character Name (from list above) OR the File ID.
+  > dark808bb
+  ✓ Identified Character: dark808bb (ID: 92638821)
+  ✓ Using User File:      core_user_9392664.dat
 
-The script copies:
-- Character-specific UI settings (window positions, overview layouts, etc.)
-- User profile settings
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REPLICATING SETTINGS
+  Copying settings from dark808bb to ALL other characters.
 
-## Requirements
+  Continue? (y/n): y
 
-- EVE Online installed via Steam on Linux
-- You have launched EVE at least once (to create settings files)
+  ⚙  Backup...
+  ⚙  Replicating...
+     • Char: core_char_2117654764.dat
+     • Char: core_char_2117670337.dat
+     • Char: core_char_2119019251.dat
+     • Char: core_char_2119019292.dat
+     • Char: core_char_2119019310.dat
+     • Char: core_char_2119125289.dat
+     • Char: core_char_2119125418.dat
+     • Char: core_char_2119125567.dat
+     • Char: core_char_2122454120.dat
+     • Char: core_char_2123984341.dat
+     • Char: core_char_2123984346.dat
+     • Char: core_char_2123984350.dat
+     • Char: core_char_2123984351.dat
+     • Char: core_char_2123984365.dat
+     • Char: core_char_2123984366.dat
+     • User: core_user_24735680.dat
+     • User: core_user_24875274.dat
+     • User: core_user_30017065.dat
+     • User: core_user_30017091.dat
+     • User: core_user_30019287.dat
+     • User: core_user_30168346.dat
 
-The script automatically detects your EVE settings directory from common Steam/Proton locations.
-
-## Usage
-
-1. Make the script executable:
-   ```bash
-   chmod +x replicator.sh
-   ```
-
-2. Run the script:
-   ```bash
-   ./replicator.sh
-   ```
-
-3. The script will auto-detect your EVE settings directory
-
-4. Enter the name of the character whose UI settings you want to copy
-
-5. Confirm when prompted
-
-6. The script will:
-   - Create a timestamped backup of all your settings
-   - Copy the master character's settings to all other characters
-   - Display restore instructions in case something goes wrong
-
-## Safety
-
-The script automatically creates a backup before making any changes. If something goes wrong, you can restore from the backup using the commands displayed at the end of the script output.
-
-## Auto-Detection
-
-The script automatically searches for your EVE settings in multiple locations to support different Steam and EVE installation methods:
-
-**Steam base directories checked:**
-- `~/.local/share/Steam`
-- `~/.steam/steam`
-- `~/.steam`
-
-**EVE installation patterns supported:**
-- Standalone CCP launcher installations
-- Steam-managed EVE installations
-- Various Proton prefix configurations
-
-If the script cannot find your settings directory, it will display the locations it checked and provide helpful troubleshooting tips.
-
-## Notes
-
-- Make sure to close EVE Online before running this script
-- The script identifies your master character by searching for the character name in the settings files
-- All existing UI settings for other characters will be overwritten
-
-## License
-
-MIT License - see [LICENSE](LICENSE) file for details.
+  ✓ Complete.
+```
