@@ -86,8 +86,8 @@ echo ""
 printf "  %-15s %-20s %-10s %s\n" "FILE ID" "LAST MODIFIED" "SIZE" "CHARACTER NAME"
 echo "  --------------------------------------------------------------------------------"
 
-# Loop through the top 15 most recent character files
-ls -lt --time-style="+%Y-%m-%d %H:%M" "$SETTINGS_DIR"/core_char_*.dat | grep -v "core_char__.dat" | head -n 15 | while read -r line; do
+# Loop through the most recent character files
+ls -lt --time-style="+%Y-%m-%d %H:%M" "$SETTINGS_DIR"/core_char_*.dat | grep -v "core_char__.dat" | while read -r line; do
     SIZE=$(echo "$line" | awk '{print $5}')
     DATE=$(echo "$line" | awk '{print $6 " " $7}')
     FILE=$(echo "$line" | awk '{print $8}')
